@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
-            <ButtonBar layoutX="142.0" layoutY="114.0" prefHeight="40.0" prefWidth="200.0" />
-          <Button layoutX="77.0" layoutY="308.0" mnemonicParsing="false" text="Button" />
-            <ButtonBar layoutX="221.0" layoutY="94.0" prefHeight="40.0" prefWidth="200.0">
-               <buttons>
-                  <ButtonBar prefHeight="40.0" prefWidth="200.0" />
-               </buttons>
-            </ButtonBar>
-          <Button layoutX="280.0" layoutY="304.0" mnemonicParsing="false" text="Button" />
-          <Button layoutX="477.0" layoutY="304.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="btt_msg" layoutX="270.0" layoutY="345.0" mnemonicParsing="false" onAction="#pressButton" text="Cadastrar">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Telas">
+                  <items>
+                      <MenuItem fx:id="bttJanelaListaP" mnemonicParsing="false" onAction="#bttJanelaListaPClick" text="Listar Pets" />
+                      <MenuItem fx:id="bttJanelaCadastro" mnemonicParsing="false" onAction="#bttJanelaCadastroClick" text="Cadastrar Pet" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <ImageView fitHeight="103.0" fitWidth="106.0" layoutX="249.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imagens/logo.jpg" />
+               </image></ImageView>
+            <Label layoutX="245.0" layoutY="154.0" prefHeight="27.0" prefWidth="112.0" text="Cadastrar Pet">
+               <font>
+                  <Font name="Bookshelf Symbol 7" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNomePet" layoutX="185.0" layoutY="245.0" prefHeight="25.0" prefWidth="241.0" />
+            <Label layoutX="185.0" layoutY="219.0" text="Nome do Pet" />
          </children>
       </AnchorPane>
    </children>

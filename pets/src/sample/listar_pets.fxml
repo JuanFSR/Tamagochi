@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerListarPets">
+   <children>
+      <Label layoutX="216.0" layoutY="40.0" prefHeight="40.0" prefWidth="169.0" text="Lista os Pets">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="28.0" />
+         </font>
+      </Label>
+      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Telas">
+               <items>
+                  <MenuItem fx:id="bttJanelaListaP" mnemonicParsing="false" onAction="#bttJanelaListaPClick" text="Listar Pets" />
+                  <MenuItem fx:id="bttJanelaCadastro" mnemonicParsing="false" onAction="#bttJanelaCadastroClick" text="Cadastrar Pet" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

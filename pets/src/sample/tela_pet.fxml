@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minHeight="123.0" minWidth="123.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ControllerTelaPet">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagens/logo.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="254.0" layoutY="200.0" text="nomedopet">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="396.0" layoutY="311.0" text="Sono">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="24.0" layoutY="311.0" text="Felicidade">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="501.0" layoutY="311.0" text="Higiene">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="276.0" layoutY="311.0" text="Saúde">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="162.0" layoutY="311.0" text="Fome">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Button layoutX="478.0" layoutY="344.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Dar banho">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="366.0" layoutY="344.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Dormir">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="251.0" layoutY="344.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Cuidar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="126.0" layoutY="344.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Dar comida">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="14.0" layoutY="344.0" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Brincar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

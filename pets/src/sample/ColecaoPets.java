@@ -17,6 +17,7 @@ public class ColecaoPets {
         }
     }
 
+
      public ArrayList<virtualPet> getPets(){
         return todosPets;
      }

@@ -16,9 +16,9 @@ public class virtualPet {
         this.valor = 0;
         this.nome = nome != null ? nome :"";
         this.saude = 100;
-        this.fome = 0;
+        this.fome = 100;
         this.felicidade = 100;
-        this.sono = 0;
+        this.sono = 100;
         this.higiene = 100;
     }
     //Getters
@@ -54,20 +54,21 @@ public class virtualPet {
         }
     }
 
-    public void setNome(){
-        if(nome != null){
-            this.nome = nome;
+    public void setNome(String novoNome){
+        System.out.println("Aqui Mesmo");
+        if(novoNome != " "){
+            this.nome = novoNome;
         }
     }
 
-    public void setSaude(){
-        if(saude != 0){
-            this.saude = saude;
+    public void setSaude(double Saude){
+        if(Saude != 0 && Saude < 100){
+            this.saude = Saude;
         }
     }
 
     public void setFome(){
-        if(fome < 100){
+        if(fome < 100 && fome>0){
             this.fome = fome;
         }
     }
@@ -105,4 +106,6 @@ public class virtualPet {
         pstring.append("}");
         return pstring.toString();
     }
+
+
 }

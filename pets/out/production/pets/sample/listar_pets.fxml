@@ -21,11 +21,15 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="bttListarPets" layoutX="417.0" layoutY="48.0" mnemonicParsing="false" onAction="#bttListarPets" text="Button" />
-      <TableView fx:id="tbPets" layoutX="46.0" layoutY="130.0" onMouseClicked="#bttAcessarPet" prefHeight="200.0" prefWidth="524.0">
+      <Button fx:id="bttListarPets" layoutX="417.0" layoutY="48.0" mnemonicParsing="false" onAction="#bttListarPets" text="Listar Pets" />
+      <TableView fx:id="tbPets" layoutX="46.0" layoutY="100.0" onMouseClicked="#bttAcessarPet" prefHeight="200.0" prefWidth="524.0">
         <columns>
           <TableColumn fx:id="colNomePet" prefWidth="523.0" text="Nome do Pet" />
         </columns>
       </TableView>
+      <Button fx:id="bttEditarPet" layoutX="400.0" layoutY="314.0" mnemonicParsing="false" onAction="#bttClickEditar" prefHeight="65.0" prefWidth="70.0" text="Editar" textFill="#fc780d" />
+      <Button fx:id="bttDeletarPet" layoutX="500.0" layoutY="314.0" mnemonicParsing="false" onAction="#bttClickDeletar" prefHeight="65.0" prefWidth="70.0" text="Deletar" textFill="#d71818" />
+      <TextField fx:id="txtNovoNomePet" layoutX="46.0" layoutY="334.0" prefHeight="25.0" prefWidth="213.0" />
+      <Label layoutX="46.0" layoutY="314.0" prefHeight="17.0" prefWidth="132.0" text="Novo nome do Pet" />
    </children>
 </AnchorPane>

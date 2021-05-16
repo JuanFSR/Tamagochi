@@ -4,12 +4,19 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -121,49 +128,53 @@ public class ControllerTelaPet implements Initializable {
 
 
     public void bttClickBrincar(ActionEvent event) {
-        if(Felicidade < 95 && Fome-8 == 0){
-            Felicidade = Felicidade + 5;
-            Fome = 0;
-        }
-        else if(Felicidade <95 && Fome-8 != 0){
-            Felicidade = Felicidade + 5;
-            Fome = Fome - 8;
-        }
-        else if(Felicidade > 95 && Fome-8 != 0){
-            Felicidade = 100;
-            Fome = Fome - 8;
-        }
-        else{
-            Felicidade = 100;
-            Fome = 0;
-        }
+        if(Dormindo != 1){
+
+            if(Felicidade < 95 && Fome-8 == 0){
+                Felicidade = Felicidade + 5;
+                Fome = 0;
+            }
+            else if(Felicidade <95 && Fome-8 != 0){
+                Felicidade = Felicidade + 5;
+                Fome = Fome - 8;
+            }
+            else if(Felicidade > 95 && Fome-8 != 0){
+                Felicidade = 100;
+                Fome = Fome - 8;
+            }
+            else{
+                Felicidade = 100;
+                Fome = 0;
+            }
 //        progresBarFelicidade.setProgress(Felicidade);
+        }
 
     }
 
 
     public void bttClickAlimentar(ActionEvent event) {
-        if(Fome > 0 && Fome < 90){
-            Fome = Fome - 5;
-        }
-        else if(Fome > 90){
-            Fome = Fome - 5;
-            Saude = Saude - 3;
-        }
-        else if(Fome == 0){
-            Fome = 0;
+        if(Dormindo != 1) {
+            if (Fome > 0 && Fome < 90) {
+                Fome = Fome + 5;
+            } else if (Fome > 90) {
+                Fome = Fome + 5;
+                Saude = Saude - 3;
+            } else if (Fome == 0) {
+                Fome = 0;
+            }
         }
     }
 
     public void bttClickCuidar(ActionEvent event) {
-        if(Saude > 0 && Saude < 95){
-            Saude = Saude + 5;
-        }
-        else if(Saude > 90){
-            if(Saude+5 >= 100) {
-                Saude = 100;
+        if(Dormindo != 1) {
+            if (Saude > 0 && Saude < 95) {
+                Saude = Saude + 5;
+            } else if (Saude > 90) {
+                if (Saude + 5 >= 100) {
+                    Saude = 100;
+                }
+                Doente = 1;
             }
-            Doente = 1;
         }
     }
 
@@ -217,15 +228,15 @@ public class ControllerTelaPet implements Initializable {
 //        return Double.toString(Sono);
 //    }
 
-    private void atualizaAtributos(){
+    private void atualizaAtributos() throws IOException {
         for(int i=0; i<5; i++){
             //Varia de 0.15 até 0.24
             arrayAleatorio[i] = ((gerador.nextFloat() + 1)* 0.3) ;
 //            System.out.println((gerador.nextFloat()+ 1) * 0.3);
 
         }
-
-        Sono += arrayAleatorio[0] * rateSono ;
+    if(Morto != 1) {
+        Sono -= arrayAleatorio[0] * rateSono;
 //        System.out.println(Sono);
         Felicidade -= arrayAleatorio[1] * rateFelicidade;
 //        System.out.println(Felicidade);
@@ -233,43 +244,38 @@ public class ControllerTelaPet implements Initializable {
 //        System.out.println(Saude);
         Higiene -= arrayAleatorio[3] * rateHigiene;
 //        System.out.println(Higiene);
-        Fome += arrayAleatorio[4] * rateHigiene;
+        Fome -= arrayAleatorio[4] * rateHigiene;
 //        System.out.println(Fome);
 
         //        System.out.println(Sono);
 
-        if(Sono > 100){
+        if (Sono > 100) {
             Sono = 100;
-        }
-        else if(Sono <= 0){
+        } else if (Sono <= 0) {
             Sono = 0;
         }
 
-        if(Felicidade < 0){
+        if (Felicidade < 0) {
             Felicidade = 0;
-        }
-        else if(Felicidade > 100){
+        } else if (Felicidade > 100) {
             Felicidade = 100;
         }
 
-        if(Saude > 100){
+        if (Saude > 100) {
             Saude = 100;
-        }
-        else if(Saude < 0){
+        } else if (Saude < 0) {
             Saude = 0;
         }
 
-        if(Higiene < 0){
+        if (Higiene < 0) {
             Higiene = 0;
-        }
-        else if(Higiene > 100){
+        } else if (Higiene > 100) {
             Higiene = 100;
         }
 
-        if(Fome > 100){
+        if (Fome > 100) {
             Fome = 100;
-        }
-        else if(Fome < 0){
+        } else if (Fome < 0) {
             Fome = 0;
         }
 
@@ -281,13 +287,13 @@ public class ControllerTelaPet implements Initializable {
         System.out.println(Higiene);
         System.out.println(Fome);
 
-        progresBarSono.setProgress(Sono/100);
-        progresBarFelicidade.setProgress(Felicidade/100);
-        progresBarSaude.setProgress(Saude/100);
-        progresBarHigiene.setProgress(Higiene/100);
-        progresBarFome.setProgress(Fome/100);
+        progresBarSono.setProgress(Sono / 100);
+        progresBarFelicidade.setProgress(Felicidade / 100);
+        progresBarSaude.setProgress(Saude / 100);
+        progresBarHigiene.setProgress(Higiene / 100);
+        progresBarFome.setProgress(Fome / 100);
 
-        if(Dormindo != 1) {
+        if (Dormindo != 1) {
             if (Saude < 40) {
                 Doente = 1;
                 rateSaude = 2;
@@ -314,13 +320,46 @@ public class ControllerTelaPet implements Initializable {
                 //Tem que parar e abrir uma janela falando que ele morreu
             }
 
-            if (Cansado < 30) {
+            if (Sono < 30) {
                 Cansado = 1;
                 rateSono = 4;
             } else {
                 rateSono = 3;
             }
+            if (Felicidade == 0 || Saude == 0 || Fome == 0) {
+                Morto = 1;
+            }
         }
+    }
+    else{
+        loop = false;
+        System.out.println("Morri");
+        System.out.println(Doente);
+        System.out.println(Dormindo);
+        System.out.println(Morto);
+        System.out.println(Normal);
+        System.out.println(Cansado);
+        System.out.println(Sujo);
+        System.out.println(Triste);
+
+        //Abrir uma nova página que mostra que o Pet morreu - não consegui ainda
+
+//        FXMLLoader loader = new FXMLLoader();
+//        loader.setLocation(getClass().getResource("pet_morreu.fxml"));
+////        System.out.println(nomePet);
+//        Parent root = null;
+////        Node node = (Node) mouseEvent.getSource();
+//        Stage stage = (Stage) node.getScene().getWindow();
+//
+//        root = loader.load();
+//        Scene scene = new Scene(root, 800, 600);
+//
+//
+//        stage.setScene(scene);
+//        stage.show();
+    }
+
+        //}
 //        if(Dormindo == 0){
 //            System.out.println("Acordeiiii, to pronto");
 //            rateSono = 3;
@@ -338,21 +377,20 @@ public class ControllerTelaPet implements Initializable {
     }
 
     public void bttClickBanho(ActionEvent event) {
-        if(Higiene+5 > 100 && Saude+3 < 100){
-            Higiene = 100;
-            Saude = Saude + 3;
-        }
-        else if(Higiene+5 > 100 && Saude+3 > 100){
-            Higiene = 100;
-            Saude = 100;
-        }
-        else if(Higiene+5 < 100 && Saude+3 < 100){
-            Higiene = Higiene + 5;
-            Saude = Saude + 3;
-        }
-        else{
-            Higiene = Higiene + 5;
-            Saude = 100;
+        if(Dormindo != 1 ) {
+            if (Higiene + 5 > 100 && Saude + 3 < 100) {
+                Higiene = 100;
+                Saude = Saude + 3;
+            } else if (Higiene + 5 > 100 && Saude + 3 > 100) {
+                Higiene = 100;
+                Saude = 100;
+            } else if (Higiene + 5 < 100 && Saude + 3 < 100) {
+                Higiene = Higiene + 5;
+                Saude = Saude + 3;
+            } else {
+                Higiene = Higiene + 5;
+                Saude = 100;
+            }
         }
 
     }

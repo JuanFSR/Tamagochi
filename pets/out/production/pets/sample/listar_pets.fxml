@@ -21,5 +21,11 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Button fx:id="bttListarPets" layoutX="417.0" layoutY="48.0" mnemonicParsing="false" onAction="#bttListarPets" text="Button" />
+      <TableView fx:id="tbPets" layoutX="46.0" layoutY="130.0" onMouseClicked="#bttAcessarPet" prefHeight="200.0" prefWidth="524.0">
+        <columns>
+          <TableColumn fx:id="colNomePet" prefWidth="523.0" text="Nome do Pet" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

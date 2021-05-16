@@ -2,8 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.awt.*;
 import java.net.URL;
@@ -24,11 +28,12 @@ public class Controller implements Initializable {
             virtualPet pet = new virtualPet(valor, nomePet);
             System.out.println(pet.toString());
 
-            Main.colecaoPets.AdicionarPet(pet);
+            sample.Main.colecaoPets.AdicionarPet(pet);
 
-            for(virtualPet p : Main.colecaoPets.getPets()){
+            for(virtualPet p : sample.Main.colecaoPets.getPets()){
                 System.out.println(p);
             }
+
         }
         else{
             System.out.println("Não cadastrou, campo vazio");

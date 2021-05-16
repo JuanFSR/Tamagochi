@@ -3,7 +3,7 @@ package sample;
 import java.util.ArrayList;
 
 public class ColecaoPets {
-    private ArrayList<virtualPet> todosPets;
+    public ArrayList<virtualPet> todosPets;
 
     //Construtor de ColecaoPets
     public ColecaoPets(){

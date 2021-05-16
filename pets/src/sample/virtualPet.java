@@ -3,11 +3,11 @@ package sample;
 public class virtualPet {
     private int valor;
     private String nome;
-    private int saude;
-    private int fome;
-    private int felicidade;
-    private int sono;
-    private int higiene;
+    private double saude;
+    private double fome;
+    private double felicidade;
+    private double sono;
+    private double higiene;
 
 
     //Construtor
@@ -30,19 +30,19 @@ public class virtualPet {
         return nome;
     }
 
-    public int getSaude(){
+    public double getSaude(){
         return saude;
     }
 
-    public int getFome(){
+    public double getFome(){
         return fome;
     }
 
-    public int getFelicidade(){return felicidade;}
+    public double getFelicidade(){return felicidade;}
 
-    public int getSono(){return sono;}
+    public double getSono(){return sono;}
 
-    public int getHigiene(){return higiene;}
+    public double getHigiene(){return higiene;}
 
 
 

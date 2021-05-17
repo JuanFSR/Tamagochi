@@ -29,11 +29,11 @@ public class Main extends Application {
         Parent parentListarPets = listar_pets.load();
 
         //Será uma nova cena
-//        sceneSample = new Scene(parentSample, 600, 400);
+        sceneSample = new Scene(parentSample, 600, 400);
         sceneListarPets = new Scene(parentListarPets, 600, 400);
 
         //Inicia o Stage como a janela sample
-        primaryStage.setScene(new Scene(parentSample));
+        primaryStage.setScene(sceneSample);
         primaryStage.show();
     }
 
@@ -41,7 +41,7 @@ public class Main extends Application {
     public static void mudaTela(int opcao){
         switch (opcao){
             case 1:
-//                primaryStage.setScene(sceneSample);
+                primaryStage.setScene(sceneSample);
                 break;
             case 2:
                 primaryStage.setScene(sceneListarPets);

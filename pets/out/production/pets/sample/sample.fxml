@@ -32,8 +32,13 @@
                   <Font name="Bookshelf Symbol 7" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNomePet" layoutX="185.0" layoutY="245.0" prefHeight="25.0" prefWidth="241.0" />
-            <Label layoutX="185.0" layoutY="219.0" text="Nome do Pet" />
+            <TextField fx:id="txtNomePet" layoutX="181.0" layoutY="209.0" prefHeight="25.0" prefWidth="241.0" />
+            <Label layoutX="185.0" layoutY="192.0" text="Nome do Pet" />
+            <Label layoutX="185.0" layoutY="255.0" prefHeight="17.0" prefWidth="70.0" text="Cor do Pet" />
+            <Button fx:id="bttCorPetAzul" layoutX="185.0" layoutY="287.0" mnemonicParsing="false" onAction="#bttClickCorPetAzul" text="Azul" />
+            <Button fx:id="bttCorPetVermelho" layoutX="244.0" layoutY="287.0" mnemonicParsing="false" onAction="#bttClickCorPetVermelho" text="Vermelho" />
+            <Button fx:id="bttCorPetAmarelo" layoutX="331.0" layoutY="287.0" mnemonicParsing="false" onAction="#bttClickCorPetAmarelo" text="Amarelo" />
+            <Button fx:id="bttCorPetVerde" layoutX="414.0" layoutY="287.0" mnemonicParsing="false" onAction="#bttClickCorPetVerde" text="Verde" />
          </children>
       </AnchorPane>
    </children>

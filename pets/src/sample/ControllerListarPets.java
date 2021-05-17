@@ -25,8 +25,10 @@ public class ControllerListarPets implements Initializable {
     @FXML
     private TableView tbPets;
 
+    private String nomePetSelecionado;
+
     @FXML
-    private TextField txtNovoNomePet;
+    private TextField txtNovaCorPet;
 
     @FXML
     private TableColumn<virtualPet, String> colNomePet;
@@ -91,7 +93,20 @@ public class ControllerListarPets implements Initializable {
         stage.setScene(scene);
         stage.show();
         }else{
-            txtNovoNomePet.setText(nomePet.getNome());
+            nomePetSelecionado = nomePet.getNome();
+            if(nomePet.getCor() == 0){
+                txtNovaCorPet.setText("Vermelho");
+            }
+            else if(nomePet.getCor() == 1){
+                txtNovaCorPet.setText("Azul");
+            }
+            else if(nomePet.getCor() == 2){
+                txtNovaCorPet.setText("Amarelo");
+            }
+            else{
+                txtNovaCorPet.setText("Verde");
+            }
+//            txtNovaCorPet.setText(Integer.toString(nomePet.getCor()));
 
         }
 
@@ -102,7 +117,7 @@ public class ControllerListarPets implements Initializable {
     }
 
     public void bttClickDeletar(ActionEvent event) {
-        String novoNome = txtNovoNomePet.getText();
+        String novoNome = nomePetSelecionado;
         for(int i=0; i< Main.colecaoPets.getPets().size(); i++){
             if(novoNome.equals(Main.colecaoPets.getPets().get(i).getNome())){
                 Main.colecaoPets.getPets().remove(i);
@@ -113,21 +128,31 @@ public class ControllerListarPets implements Initializable {
 
     //só atualiza quando eu cadastro outro pet, porque?
     public void bttClickEditar(ActionEvent event) {
-        String novoNome = txtNovoNomePet.getText();
-        System.out.println(novoNome);
-        nomePet.setNome(novoNome);
-        bttListarPets(event);
+        int novaCor;
+        String novaCorNome = txtNovaCorPet.getText();
+        System.out.println(novaCorNome);
 
+        if(novaCorNome == "Vermelho"){
+            novaCor = 0;
+        }
+        else if(novaCorNome == "Azul"){
+            novaCor = 1;
+        }
+        else if(novaCorNome == "Amarelo"){
+            novaCor = 2;
+        }
+        else{
+            novaCor = 3;
+        }
 
-        //Podemos alterar o nome ou ele é a nossa chave primária
-        //Se for a nossa chave primária, que campo vamos poder editar então?
-//        for(int i=0; i< Main.colecaoPets.getPets().size(); i++){
-//            if(novoNome.equals(Main.colecaoPets.getPets().get(i).getNome())){
-//                Main.colecaoPets.getPets().get(i).setNome(novoNome);
-//                System.out.println(Main.colecaoPets.getPets().get(i).getNome());
-//
-//            }
-//        }
+        //Alteramos a cor do Pet
+        for(int i=0; i< Main.colecaoPets.getPets().size(); i++){
+            if(nomePetSelecionado.equals(Main.colecaoPets.getPets().get(i).getNome())){
+                Main.colecaoPets.getPets().get(i).setCor(novaCor);
+                System.out.println(Main.colecaoPets.getPets().get(i).getCor());
+
+            }
+        }
     }
 }
 

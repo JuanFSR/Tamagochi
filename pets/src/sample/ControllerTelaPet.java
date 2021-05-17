@@ -52,6 +52,8 @@ public class ControllerTelaPet implements Initializable {
     private double Saude;
     private double Sono;
     private double Higiene;
+    private double TempoVida;
+    private int Cor;
     private Integer flag = 0;
 
     private Integer Doente = 0;     //Se diferente de 0, está doente
@@ -82,6 +84,8 @@ public class ControllerTelaPet implements Initializable {
         Saude = petSelecionado.getSaude();
         Sono = petSelecionado.getSono();
         Higiene = petSelecionado.getHigiene();
+        TempoVida = petSelecionado.getTempoVida();
+        Cor = petSelecionado.getCor();
 
         labelNomePet.setText(petSelecionado.getNome());
         progresBarFelicidade.setProgress(Felicidade);
@@ -89,10 +93,17 @@ public class ControllerTelaPet implements Initializable {
         progresBarSaude.setProgress(Saude);
         progresBarSono.setProgress(Sono);
         progresBarHigiene.setProgress(Higiene);
+        System.out.println(Cor);
+        System.out.println(TempoVida);
 
 
     }
 
+    //Necessário verificar a cor do Pet para alterar a imagem
+    //Vermelho = 0
+    //Azul = 1
+    //Amarelo = 2
+    //Verde = 3
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -115,7 +126,7 @@ public class ControllerTelaPet implements Initializable {
                             atualizaAtributos();
                             System.out.println("Dormindo valor");
                             System.out.println(Dormindo);
-                            Thread.sleep(300);
+                            Thread.sleep(500);
                         }
                         return null;
                     }
@@ -235,6 +246,10 @@ public class ControllerTelaPet implements Initializable {
 //            System.out.println((gerador.nextFloat()+ 1) * 0.3);
 
         }
+
+        //Incrementa o tempo de vida conforme as threads são executadas , que nesse caso, são executadas a cada 300ms
+        TempoVida += 0.005;
+
     if(Morto != 1) {
         Sono -= arrayAleatorio[0] * rateSono;
 //        System.out.println(Sono);

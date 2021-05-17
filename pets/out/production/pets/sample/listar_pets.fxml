@@ -29,7 +29,7 @@
       </TableView>
       <Button fx:id="bttEditarPet" layoutX="400.0" layoutY="314.0" mnemonicParsing="false" onAction="#bttClickEditar" prefHeight="65.0" prefWidth="70.0" text="Editar" textFill="#fc780d" />
       <Button fx:id="bttDeletarPet" layoutX="500.0" layoutY="314.0" mnemonicParsing="false" onAction="#bttClickDeletar" prefHeight="65.0" prefWidth="70.0" text="Deletar" textFill="#d71818" />
-      <TextField fx:id="txtNovoNomePet" layoutX="46.0" layoutY="334.0" prefHeight="25.0" prefWidth="213.0" />
+      <TextField fx:id="txtNovaCorPet" layoutX="46.0" layoutY="334.0" prefHeight="25.0" prefWidth="213.0" />
       <Label layoutX="46.0" layoutY="314.0" prefHeight="17.0" prefWidth="132.0" text="Novo nome do Pet" />
    </children>
 </AnchorPane>
